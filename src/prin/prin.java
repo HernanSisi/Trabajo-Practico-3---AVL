@@ -1,10 +1,9 @@
 package prin;
 
 import api.ABBTDA;
-import imp.ABB;
+import imp.AVL;
 
 public class prin {
-
 	public static int contarNodos(ABBTDA a) {
 		int resultado;
 		if(a.arbolVacio())
@@ -47,22 +46,21 @@ public class prin {
 		}
 	}
 	
-	public static boolean isomorfos(ABBTDA a, ABBTDA b) {
+	/* public static boolean isomorfos(ABBTDA a, ABBTDA b) {
 		if(a.arbolVacio() && b.arbolVacio())
 			return true;
 		else if(a.arbolVacio() || b.arbolVacio())
 			return false;
 		else
 			return isomorfos(a.hijoIzq(), b.hijoIzq()) && isomorfos(a.hijoDer(), b.hijoDer());
-			
-	}
+	} */
 	
 	public static void main(String[] args) {
-		ABBTDA a = new ABB();
-		ABBTDA b = new ABB();
+		ABBTDA a = new AVL();
+		ABBTDA b = new AVL();
 		a.inicializarArbol();
 		a.agregarElem(55);
-		a.agregarElem(33);
+		a.agregarElem(85);
 		a.agregarElem(87);
 		a.agregarElem(28);
 		a.agregarElem(42);
@@ -77,36 +75,17 @@ public class prin {
 		a.agregarElem(82);
 		a.agregarElem(20);
 		a.agregarElem(27);
-		b.inicializarArbol();
-		b.agregarElem(55);
-		b.agregarElem(33);
-		b.agregarElem(87);
-		b.agregarElem(28);
-		b.agregarElem(42);
-		b.agregarElem(63);
-		b.agregarElem(111);
-		b.agregarElem(17);
-		b.agregarElem(29);
-		b.agregarElem(60);
-		b.agregarElem(75);
-		b.agregarElem(24);
-		b.agregarElem(68);
-		b.agregarElem(82);
-		b.agregarElem(20);
-		b.agregarElem(27);
-		b.agregarElem(12);
-		
+				
 		System.out.println("pre-order:");
 		preOrder(a);
 		System.out.println();
+		
 		System.out.println("in-order:");
 		inOrder(a);
 		System.out.println();
+		
 		System.out.println("post-order:");
 		postOrder(a);
 		System.out.println();
-		System.out.println("La cantidad de nodos es " + contarNodos(a));
-		System.out.println("La altura del árbol es " + altura(a));
-		System.out.println(isomorfos(a, b));
 	}
 }
